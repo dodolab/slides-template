@@ -1,4 +1,4 @@
-# RevealJS-Template
+# Slides-Template
 
 [![Slides preview](/docs/preview.png)](https://aphgames.io/docs/learning/intro)
 
