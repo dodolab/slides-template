@@ -1,0 +1,16 @@
+.print-pdf {
+	.reveal {
+        /* override the default behavior */
+		.frame {
+            border-image-slice: 150 186 159 fill !important;
+            border-image-width: 160px !important;
+            border-image-outset: 0px 0px 0px 0px !important;
+            border-image-repeat: repeat repeat !important;
+            border-image-source: url("./resources/frame.png") !important;
+    
+            &.empty {
+                border-image-source: url("./resources/frame_empty.png")  !important;
+            }
+        }
+	}
+}

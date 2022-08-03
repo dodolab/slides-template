@@ -1,0 +1,31 @@
+- var themePath = '../themes/tech/';
+
+mixin titleLecture(type, name, label, icon)
+	+frameOutbox()
+		.absolute.left-10.top-15
+			.flex-row
+				div.mt-10
+					img.height-70(src!=themePath+'resources/logo.svg')
+		.absolute.right-10.top-15
+			.flex-col.font-light.text-xl.text-right
+				.text-xs!=type
+				.text-xs.mt-2!=label
+		.absolute.bottom-100.right-0.-mr-45.rotate-270
+			p.font-light.color-tomato-light DoDoLab
+			div.width-160.height-2.bgr-tomato-light
+		.height-280
+		div.flex-col.items-center.text-center
+			div.relative
+				img.height-300(id='logo_title', src=icon)
+			div.text-center.text-center.width-800.mt-20
+				h2.font-thin.uppercase.text-2xl!=name
+
+mixin mchapter(text, icon)
+	+frameOutbox()&attributes(attributes)
+		.flex-col.items-center
+			.top-28p.text-center
+				if(icon)
+					img.width-350(src!=icon).opacity-6
+				else
+					img.width-350(src!=themePath+'resources/logo_head.svg').opacity-6
+				h2.uppercase.font-light.highlight.mt-20.color-rhino-20!=text

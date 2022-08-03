@@ -1,0 +1,402 @@
+doctype html
+
+- var assets = '../assets/corporate/'
+- var defaultBgr = 'backgrounds/city.jpg';
+include ./mixins/header.pug
+include ./mixins/containers.pug
+include ../themes/corporate/containers.pug
+
+
++header('Corpo Template', 'Corporate', 'DoDoLab', '../themes/corporate/resources/favicon.png', '../themes/corporate/theme.scss')
+// ===================================================== SLIDES =====================================================
+.reveal
+	.slides
+		// ======================================================================
+		+pictureFrame(assets+'pictures/light.jpg')
+			div.fill.center
+				h1.color-midnight.font-bold Corporate Template
+		// ======================================================================
+		+frame(title='Fragments')
+			.scope.fragment
+				p Scope Title
+				ul
+
+					li.fragment.fade-up fragment fragment fragment fragment fragment fragment fragment
+			.scope.fragment
+				p Scope Title
+				ul
+
+					li.fragment.fade-up fragment fragment fragment fragment fragment fragment fragment
+			.scope.fragment
+				p Scope Title
+				ul
+
+					li.fragment.fade-up fragment fragment fragment fragment fragment fragment fragment
+		+frame.opacity-9
+			div.fill.bgr-midnight.center
+				h1.color-white
+					b Frame
+		+frame.opacity-9
+			div.fill.bgr-midnight.center
+				h1.color-white
+					b Inner Frame
+		+pictureFrame(assets+'pictures/light.jpg')
+			div.fill.center
+				h1.color-rhino-100
+					b Picture Frame
+		+frame()
+			div.absolute.center.size-100p.-m-60
+				h1.font-bold.color-white Bordered Picture Frame
+			img.size-100p.object-cover(src=assets+'pictures/img_horizontal.jpg')
+		+frame(title='Hints')
+			.fill.center
+				+imgTooltip(assets+'icons_dark/light_bulb.svg', 'This is a hint')
+		- var defaultBgr = 'backgrounds/code.jpg';
+		+frameInverted(title='Code: JavaScript').opacity-9
+			.fill.p-20.code.center
+				include ../assets/corporate/snippets_generated/javascript-example.html
+		+frameInverted(title='Code: SQL').opacity-9
+			.fill.p-20.code.center
+				include ../assets/corporate/snippets_generated/sql-example.html
+		+frameInverted(title='Equations').opacity-9
+			.fill.center.color-white
+				div
+					div
+						include ../assets/corporate/equations_generated/example_01.svg
+					div
+						include ../assets/corporate/equations_generated/example_02.svg
+					div
+						include ../assets/corporate/equations_generated/example_03.svg
+					div
+						include ../assets/corporate/equations_generated/example_04.svg
+					div
+						include ../assets/corporate/equations_generated/example_05.svg
+		- var defaultBgr = 'backgrounds/city.jpg';
+		+frame(transition='zoom')
+			div.fill.bgr-midnight.center
+				h1.text-5xl.color-white
+					b Transition
+		+frame(autoAnimate='true')
+			div.fill.bgr-midnight
+				.text-center
+					p.color-white Auto-Animate
+				.size-200.bgr-yellow.top-150.left-150(data-id='1')
+				.size-200.bgr-tomato.top-150.left-720(data-id='2')
+				.size-200.bgr-green.top-150.right-150(data-id='3')
+		+frame(autoAnimate='true')
+			div.fill.bgr-midnight
+				.text-center
+					p.color-white.text-xl Auto-Animate
+				.size-300.bgr-green.top-450.left-150(data-id='3')
+				.size-300.bgr-tomato.top-450.left-680(data-id='2')
+				.size-300.bgr-yellow.top-450.right-150(data-id='1')
+		+frame(title='Light Icons 1/2')
+			-
+				var iconsBigDark1 = [
+					assets+'icons_dark/africa.svg', assets+'icons_dark/airplane.svg', assets+'icons_dark/alarm.svg', assets+'icons_dark/around_circle_rotate.svg',
+					assets+'icons_dark/artificial_intelligence.svg', assets+'icons_dark/asia.svg', assets+'icons_dark/australia.svg', assets+'icons_dark/award.svg',
+					assets+'icons_dark/bag.svg', assets+'icons_dark/basket.svg', assets+'icons_dark/bell.svg', assets+'icons_dark/binoculars.svg',
+					assets+'icons_dark/bowling_game.svg', assets+'icons_dark/boy_profile.svg', assets+'icons_dark/boy_profile_2.svg', assets+'icons_dark/building.svg',
+					assets+'icons_dark/buildings.svg', assets+'icons_dark/bulb_in_hand.svg', assets+'icons_dark/cabinet.svg', assets+'icons_dark/calculator.svg',
+					assets+'icons_dark/calendar.svg', assets+'icons_dark/calendar_2.svg', assets+'icons_dark/camera.svg', assets+'icons_dark/candy.svg',
+					assets+'icons_dark/car.svg', assets+'icons_dark/case.svg', assets+'icons_dark/certificate_award.svg', assets+'icons_dark/chart_branches.svg',
+					assets+'icons_dark/chart_canvas.svg', assets+'icons_dark/chart_canvas_2.svg', assets+'icons_dark/chart_graph_board.svg', assets+'icons_dark/chart_increase.svg',
+					assets+'icons_dark/chart_tree.svg', assets+'icons_dark/chart_vertical.svg', assets+'icons_dark/chat_bubbles.svg', assets+'icons_dark/chat_bubbles_2.svg',
+					assets+'icons_dark/checklist.svg', assets+'icons_dark/cinematic_camera.svg', assets+'icons_dark/clip.svg', assets+'icons_dark/clipboard.svg',
+					assets+'icons_dark/clock.svg', assets+'icons_dark/cog.svg', assets+'icons_dark/coins.svg', assets+'icons_dark/components.svg',
+					assets+'icons_dark/computer_pc_chart.svg', assets+'icons_dark/computer_pc_chat.svg', assets+'icons_dark/computer_pc_retail.svg', assets+'icons_dark/computer_pc_screen_desktop.svg',
+					assets+'icons_dark/cube.svg', assets+'icons_dark/decrease.svg', assets+'icons_dark/diamond.svg', assets+'icons_dark/dice.svg',
+					assets+'icons_dark/dice_in_hand.svg', assets+'icons_dark/dining_food_restaurant.svg', assets+'icons_dark/donut_chart.svg', assets+'icons_dark/down_arrow.svg',
+					assets+'icons_dark/dress.svg', assets+'icons_dark/drink.svg', assets+'icons_dark/emoji.svg', assets+'icons_dark/envelope.svg',
+					assets+'icons_dark/eshop.svg', assets+'icons_dark/europe.svg', assets+'icons_dark/eye.svg', assets+'icons_dark/flag.svg',
+					assets+'icons_dark/flow_chart.svg', assets+'icons_dark/flower.svg', assets+'icons_dark/folder.svg', assets+'icons_dark/girl_profile.svg',
+					assets+'icons_dark/girl_side.svg', assets+'icons_dark/glass.svg', assets+'icons_dark/glasses.svg', assets+'icons_dark/globe.svg',
+					assets+'icons_dark/globe_chat.svg', assets+'icons_dark/globe_mesh.svg', assets+'icons_dark/googles.svg', assets+'icons_dark/graduate.svg',
+					assets+'icons_dark/group.svg', assets+'icons_dark/group_hand.svg', assets+'icons_dark/gymshoe.svg', assets+'icons_dark/half_sphere_cut.svg',
+					assets+'icons_dark/handshake.svg', assets+'icons_dark/hat.svg', assets+'icons_dark/heart.svg', assets+'icons_dark/house.svg',
+					assets+'icons_dark/key.svg', assets+'icons_dark/laptop_computer_pc.svg', assets+'icons_dark/layers.svg', assets+'icons_dark/light_bulb.svg',
+					assets+'icons_dark/lipstick_makeup_cosmetics.svg', assets+'icons_dark/lock.svg', assets+'icons_dark/magnifier.svg', assets+'icons_dark/magnifier_2.svg',
+					assets+'icons_dark/map_location.svg', assets+'icons_dark/medal.svg', assets+'icons_dark/megaphone.svg', assets+'icons_dark/meter.svg',
+					assets+'icons_dark/mobile_cell_phone.svg', assets+'icons_dark/mobile_cell_phone_buttons.svg']
+			.flex-wrap.mt-20
+				each val in iconsBigDark1
+					div.p-10
+						img.height-80(src=val)
+		+frame(title='Light Icons 2/2')
+			-
+				var iconsBigDark2 = [
+					assets+'icons_dark/mobile_cell_phone_chat.svg', assets+'icons_dark/mobile_finder.svg', assets+'icons_dark/money_bag.svg', assets+'icons_dark/movie_player.svg',
+					assets+'icons_dark/music_notes.svg', assets+'icons_dark/no_blocked_cancel.svg', assets+'icons_dark/north_america.svg', assets+'icons_dark/pen.svg',
+					assets+'icons_dark/pencil_paper.svg', assets+'icons_dark/people_avatar.svg', assets+'icons_dark/people_celebrate.svg', assets+'icons_dark/people_star.svg',
+					assets+'icons_dark/person_chat.svg', assets+'icons_dark/person_sparkle_celebrate.svg', assets+'icons_dark/phone.svg', assets+'icons_dark/phone_in_hand.svg',
+					assets+'icons_dark/phone_with_face.svg', assets+'icons_dark/photo_picture.svg', assets+'icons_dark/pie_chart_graph_cut.svg', assets+'icons_dark/pie_chart_slice.svg',
+					assets+'icons_dark/piggy_bank_money_coins.svg', assets+'icons_dark/planet.svg', assets+'icons_dark/poi.svg', assets+'icons_dark/pointer.svg',
+					assets+'icons_dark/popcorn_drink_food_snack.svg', assets+'icons_dark/present.svg', assets+'icons_dark/price_tag.svg', assets+'icons_dark/profile.svg',
+					assets+'icons_dark/puzzle.svg', assets+'icons_dark/ruler.svg', assets+'icons_dark/sand_clock.svg', assets+'icons_dark/scales.svg',
+					assets+'icons_dark/search.svg', assets+'icons_dark/service.svg', assets+'icons_dark/shoe.svg', assets+'icons_dark/shop.svg',
+					assets+'icons_dark/shuttle.svg', assets+'icons_dark/sliders.svg', assets+'icons_dark/soccer_football.svg', assets+'icons_dark/sock.svg',
+					assets+'icons_dark/south_america.svg', assets+'icons_dark/star.svg', assets+'icons_dark/suit.svg', assets+'icons_dark/suit_bulb.svg',
+					assets+'icons_dark/sun.svg', assets+'icons_dark/talk_money.svg', assets+'icons_dark/target.svg', assets+'icons_dark/thumbs_down.svg',
+					assets+'icons_dark/thumbs_up.svg', assets+'icons_dark/todolist.svg', assets+'icons_dark/toggles.svg', assets+'icons_dark/touch_finger.svg',
+					assets+'icons_dark/tower.svg', assets+'icons_dark/trophy.svg', assets+'icons_dark/tumbtack_push_pin.svg', assets+'icons_dark/tv.svg',
+					assets+'icons_dark/up_chart_graph_rising.svg', assets+'icons_dark/up_down.svg', assets+'icons_dark/video.svg', assets+'icons_dark/wallet.svg',
+					assets+'icons_dark/warning.svg', assets+'icons_dark/web_people_tree_branches.svg', assets+'icons_dark/wifi.svg', assets+'icons_dark/wizard_hat.svg',
+					assets+'icons_dark/wrench_tool.svg']
+			.flex-wrap
+				each val in iconsBigDark2
+					div.p-10
+						img.height-80(src=val)
+		+frame(title='Dark Icons 1/2' frameColorClass='bgr-midnight' titleColorClass='color-white')
+			-
+				var iconsBigLight = [
+					assets+'icons_light/africa.svg', assets+'icons_light/airplane.svg', assets+'icons_light/alarm.svg', assets+'icons_light/around_circle_rotate.svg',
+					assets+'icons_light/artificial_intelligence.svg', assets+'icons_light/asia.svg', assets+'icons_light/australia.svg', assets+'icons_light/award.svg',
+					assets+'icons_light/bag.svg', assets+'icons_light/basket.svg', assets+'icons_light/bell.svg', assets+'icons_light/binoculars.svg',
+					assets+'icons_light/bowling_game.svg', assets+'icons_light/boy_profile.svg', assets+'icons_light/boy_profile_2.svg', assets+'icons_light/building.svg',
+					assets+'icons_light/buildings.svg', assets+'icons_light/bulb_in_hand.svg', assets+'icons_light/cabinet.svg', assets+'icons_light/calculator.svg',
+					assets+'icons_light/calendar.svg', assets+'icons_light/calendar_2.svg', assets+'icons_light/camera.svg', assets+'icons_light/candy.svg',
+					assets+'icons_light/car.svg', assets+'icons_light/case.svg', assets+'icons_light/certificate_award.svg', assets+'icons_light/chart_branches.svg',
+					assets+'icons_light/chart_canvas.svg', assets+'icons_light/chart_canvas_2.svg', assets+'icons_light/chart_graph_board.svg', assets+'icons_light/chart_increase.svg',
+					assets+'icons_light/chart_tree.svg', assets+'icons_light/chart_vertical.svg', assets+'icons_light/chat_bubbles.svg', assets+'icons_light/chat_bubbles_2.svg',
+					assets+'icons_light/checklist.svg', assets+'icons_light/cinematic_camera.svg', assets+'icons_light/clip.svg', assets+'icons_light/clipboard.svg',
+					assets+'icons_light/clock.svg', assets+'icons_light/cog.svg', assets+'icons_light/coins.svg', assets+'icons_light/components.svg',
+					assets+'icons_light/computer_pc_chart.svg', assets+'icons_light/computer_pc_chat.svg', assets+'icons_light/computer_pc_retail.svg', assets+'icons_light/computer_pc_screen_desktop.svg',
+					assets+'icons_light/cube.svg', assets+'icons_light/decrease.svg', assets+'icons_light/diamond.svg', assets+'icons_light/dice.svg',
+					assets+'icons_light/dice_in_hand.svg', assets+'icons_light/dining_food_restaurant.svg', assets+'icons_light/donut_chart.svg', assets+'icons_light/down_arrow.svg',
+					assets+'icons_light/dress.svg', assets+'icons_light/drink.svg', assets+'icons_light/emoji.svg', assets+'icons_light/envelope.svg',
+					assets+'icons_light/eshop.svg', assets+'icons_light/europe.svg', assets+'icons_light/eye.svg', assets+'icons_light/flag.svg',
+					assets+'icons_light/flow_chart.svg', assets+'icons_light/flower.svg', assets+'icons_light/folder.svg', assets+'icons_light/girl_profile.svg',
+					assets+'icons_light/girl_side.svg', assets+'icons_light/glass.svg', assets+'icons_light/glasses.svg', assets+'icons_light/globe.svg',
+					assets+'icons_light/globe_chat.svg', assets+'icons_light/globe_mesh.svg', assets+'icons_light/googles.svg', assets+'icons_light/graduate.svg',
+					assets+'icons_light/group.svg', assets+'icons_light/group_hand.svg', assets+'icons_light/gymshoe.svg', assets+'icons_light/half_sphere_cut.svg',
+					assets+'icons_light/handshake.svg', assets+'icons_light/hat.svg', assets+'icons_light/heart.svg', assets+'icons_light/house.svg',
+					assets+'icons_light/key.svg', assets+'icons_light/laptop_computer_pc.svg', assets+'icons_light/layers.svg', assets+'icons_light/light_bulb.svg',
+					assets+'icons_light/lipstick_makeup_cosmetics.svg', assets+'icons_light/lock.svg', assets+'icons_light/magnifier.svg', assets+'icons_light/magnifier_2.svg',
+					assets+'icons_light/map_location.svg', assets+'icons_light/medal.svg', assets+'icons_light/megaphone.svg', assets+'icons_light/meter.svg',
+					assets+'icons_light/mobile_cell_phone.svg', assets+'icons_light/mobile_cell_phone_buttons.svg']
+			.flex-wrap
+				each val in iconsBigLight
+					div.p-10
+						img.height-80(src=val)
+		+frame(title='Dark Icons 2/2' frameColorClass='bgr-midnight' titleColorClass='color-white')
+			-
+				var iconsBigLight2 = [
+					assets+'icons_light/mobile_cell_phone_chat.svg', assets+'icons_light/mobile_finder.svg', assets+'icons_light/money_bag.svg', assets+'icons_light/movie_player.svg',
+					assets+'icons_light/music_notes.svg', assets+'icons_light/no_blocked_cancel.svg', assets+'icons_light/north_america.svg', assets+'icons_light/pen.svg',
+					assets+'icons_light/pencil_paper.svg', assets+'icons_light/people_avatar.svg', assets+'icons_light/people_celebrate.svg', assets+'icons_light/people_star.svg',
+					assets+'icons_light/person_chat.svg', assets+'icons_light/person_sparkle_celebrate.svg', assets+'icons_light/phone.svg', assets+'icons_light/phone_in_hand.svg',
+					assets+'icons_light/phone_with_face.svg', assets+'icons_light/photo_picture.svg', assets+'icons_light/pie_chart_graph_cut.svg', assets+'icons_light/pie_chart_slice.svg',
+					assets+'icons_light/piggy_bank_money_coins.svg', assets+'icons_light/planet.svg', assets+'icons_light/poi.svg', assets+'icons_light/pointer.svg',
+					assets+'icons_light/popcorn_drink_food_snack.svg', assets+'icons_light/present.svg', assets+'icons_light/price_tag.svg', assets+'icons_light/profile.svg',
+					assets+'icons_light/puzzle.svg', assets+'icons_light/ruler.svg', assets+'icons_light/sand_clock.svg', assets+'icons_light/scales.svg',
+					assets+'icons_light/search.svg', assets+'icons_light/service.svg', assets+'icons_light/shoe.svg', assets+'icons_light/shop.svg',
+					assets+'icons_light/shuttle.svg', assets+'icons_light/sliders.svg', assets+'icons_light/soccer_football.svg', assets+'icons_light/sock.svg',
+					assets+'icons_light/south_america.svg', assets+'icons_light/star.svg', assets+'icons_light/suit.svg', assets+'icons_light/suit_bulb.svg',
+					assets+'icons_light/sun.svg', assets+'icons_light/talk_money.svg', assets+'icons_light/target.svg', assets+'icons_light/thumbs_down.svg',
+					assets+'icons_light/thumbs_up.svg', assets+'icons_light/todolist.svg', assets+'icons_light/toggles.svg', assets+'icons_light/touch_finger.svg',
+					assets+'icons_light/tower.svg', assets+'icons_light/trophy.svg', assets+'icons_light/tumbtack_push_pin.svg', assets+'icons_light/tv.svg',
+					assets+'icons_light/up_chart_graph_rising.svg', assets+'icons_light/up_down.svg', assets+'icons_light/video.svg', assets+'icons_light/wallet.svg',
+					assets+'icons_light/warning.svg', assets+'icons_light/web_people_tree_branches.svg', assets+'icons_light/wifi.svg', assets+'icons_light/wizard_hat.svg',
+					assets+'icons_light/wrench_tool.svg']
+			.flex-wrap
+				each val in iconsBigLight2
+					div.p-10
+						img.height-80(src=val)
+		+frame(title='Tips')
+			.flex-cols-3.center.fill
+				+tip(tipClass='bgr-tomato').width-30p.m-20
+					|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat felis purus, id posuere sem consectetur eget.
+					|Sed finibus ligula vel finibus placerat. Etiam feugiat velit metus.
+					|Donec tincidunt suscipit erat, sed tempor odio ultrices a. Sed a tortor ipsum.
+				+tip(tipClass='bgr-royal').width-30p.m-20
+					|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat felis purus, id posuere sem consectetur eget.
+					|Sed finibus ligula vel finibus placerat. Etiam feugiat velit metus.
+					|Donec tincidunt suscipit erat, sed tempor odio ultrices a. Sed a tortor ipsum.
+				+tip(tipClass='bgr-pink').width-30p.m-20
+					|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat felis purus, id posuere sem consectetur eget.
+					|Sed finibus ligula vel finibus placerat. Etiam feugiat velit metus.
+					|Donec tincidunt suscipit erat, sed tempor odio ultrices a. Sed a tortor ipsum.
+		+frame(title='Info Boxes')
+			.grid.grid-cols-3.grid-rows-2.gap-100.mx-100.center.fill
+				div
+					+infoBox('1234', 'Lorem Ipsum')(boxClass='border-midnight' titleColorClass='color-midnight' titleDescClass='color-rhino-100')
+				div
+					+infoBox('1234', 'Lorem Ipsum')(boxClass='border-royal' titleColorClass='color-royal' titleDescClass='color-rhino-100')
+				div
+					+infoBox('1234', 'Lorem Ipsum')(boxClass='border-aqua' titleColorClass='color-aqua' titleDescClass='color-rhino-100')
+				div
+					+infoBox('1234', 'Lorem Ipsum')(boxClass='bgr-midnight' titleColorClass='color-white' titleDescClass='color-white')
+				div
+					+infoBox('1234', 'Lorem Ipsum')(boxClass='bgr-royal' titleColorClass='color-white' titleDescClass='color-white')
+				div
+					+infoBox('1234', 'Lorem Ipsum')(boxClass='bgr-rhino-20' titleColorClass='color-rhino-100' titleDescClass='color-rhino-100')
+		+frame(title='Table (Default and Colored)')
+			.flex-rows-2.center.fill
+				table.default
+					tr
+						th Header A
+						th Header B
+						th Header C
+						th Header D
+						th Header E
+						th Header F
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+				table.colored.my-60
+					tr
+						th Header A
+						th Header B
+						th Header C
+						th Header D
+						th Header E
+						th Header F
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+		+pictureFrame(assets+'pictures/light.jpg')
+			div.width-100p.height-35p.bgr-midnight-semi.bottom-0p.flex-col.items-start.p-50
+				h2.font-bold.text-left.text-xl.mt-20.color-white Presentation Title
+				h3.font-bold.text-2xs.mt-20.color-white Subtitle
+			// ==== ornaments
+			div.bgr-tomato.size-150.right-80.bottom-240
+			div.bgr-rhino-100.size-100.right-230.bottom-390
+		+frame()
+			div.fill.bgr-rhino-5.flex-row.items-center
+				div.width-50p
+					h2.width-70p.text-left.font-bold.text-xl.ml-60 Presentation title with a picture
+				div.width-50p.relative.height-100p
+					img.size-100p.top-0.object-cover(src=assets+'pictures/img_horizontal.jpg')
+		+frame()
+			div.fill.flex-cols-2
+				div.height-100p.p-40
+					div
+						p.font-bold.text-2xs.mt-20 Lorem Ipsum
+						p.text-2xs.mt-20 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin mattis lacinia justo. Phasellus rhoncus. Aliquam ornare wisi eu metus. Donec quis nibh at felis congue commodo. Fusce tellus. Etiam quis quam. In enim a arcu imperdiet malesuada.
+						p.font-bold.text-2xs.mt-60 Lorem Ipsum
+						p.text-2xs.mt-20 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin mattis lacinia justo. Phasellus rhoncus.
+				div.bgr-midnight.flex.p-60
+					p.color-white.italic.text-2xs.mt-80 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin mattis lacinia justo. Phasellus rhoncus. Aliquam ornare wisi eu metus. Donec quis nibh at felis congue commodo. Fusce tellus. Etiam quis quam. In enim a arcu imperdiet malesuada. Morbi scelerisque luctus velit. Aliquam ornare wisi eu metus.
+		+frame()
+			div.flex-row.fill
+				div.width-35p.height-100p
+					img.fill.object-cover(src=assets+'pictures/img_horizontal.jpg')
+				div.p-40.width-60p
+					h2.text-left.font-bold.text-xl Lorem Ipsum Dolor Sit Amet
+					ul.text-2xs.mt-40.spacing-xl
+						li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor auctor sapien. Nulla facilisi. In tempus urna et orci faucibus consequat. Etiam vitae pulvinar neque.
+							|Cras pulvinar, ante at sagittis dictum, erat purus luctus tellus, et eleifend nibh est ut lectus. Suspendisse eleifend enim neque, non aliquet turpis venenatis eget.
+						li Suspendisse et interdum turpis. Curabitur ornare, leo quis vestibulum facilisis, lectus quam auctor justo, sit amet scelerisque quam lorem eget lacus. Nulla in imperdiet ante.
+						li Ut mollis, purus a volutpat volutpat, justo tortor dignissim massa, id rhoncus felis nulla vel nibh.
+		+frame()
+			div.fill.flex-cols-2
+				div.pr-20
+					h2.font-bold.text-xl.text-left Lorem Ipsum Dolor Sit Amet
+					ul.mt-40.text-2xs.spacing-xl
+						li Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor auctor sapien. Nulla facilisi. In tempus urna et orci faucibus consequat.
+							|Etiam vitae pulvinar neque.
+						li Cras pulvinar, ante at sagittis dictum, erat purus luctus tellus, et eleifend nibh est ut lectus. Suspendisse eleifend enim neque, non aliquet
+							|turpis venenatis eget. Suspendisse et interdum turpis.
+						li Curabitur ornare, leo quis vestibulum facilisis, lectus quam auctor justo, sit amet scelerisque quam lorem eget lacus.
+				div.grid.grid-cols-2.grid-rows-2
+					div
+						img.height-100p.object-cover(src=assets+'pictures/img_horizontal.jpg')
+					div
+						img.height-100p.object-cover(src=assets+'pictures/img_horizontal.jpg')
+					div
+						img.height-100p.object-cover(src=assets+'pictures/img_horizontal.jpg')
+					div
+						img.height-100p.object-cover(src=assets+'pictures/img_horizontal.jpg')
+		+frame()
+			.flex-row.fill
+				div.width-80p.ml-20
+					h2.mt-40.color-rhino-100.font-bold.text-xl.text-left.uppercase Agenda
+					div.mt-40
+						.flex-row.items-start
+							.circle.size-40.bgr-midnight
+							.ml-60.width-20p.text-3xs.color-rhino-100 12:00 - 12:05 h
+							.font-bold.width-60p.text-3xs.color-rhino-100 Introduction
+						.flex-row.items-start.mt-10
+							.circle.size-40.bgr-aqua
+							.ml-60.width-20p.text-3xs.color-rhino-100 12:05 - 12:10 h
+							.font-bold.width-60p.text-3xs.color-rhino-100 What is Agile and Scrum?
+						.flex-row.items-start.mt-10
+							.circle.size-40.bgr-royal
+							.ml-60.width-20p.text-3xs.color-rhino-100 12:10 - 12:20 h
+							.font-bold.width-60p.text-3xs.color-rhino-100 Why do we use Scrum?
+						.flex-row.items-start.mt-10
+							.circle.size-40.bgr-blue
+							.ml-60.width-20p.text-3xs.color-rhino-100 12:20 - 12:35 h
+							.font-bold.width-60p.text-3xs.color-rhino-100.self-start The Roles
+						.flex-row.items-start.mt-10
+							.circle.size-40.bgr-royal
+							.ml-60.width-20p.text-3xs.color-rhino-100 12:35 - 12:50 h
+							.font-bold.width-60p.text-3xs.color-rhino-100.self-start The Ceremonies
+						.flex-row.items-start.mt-10
+							.circle.size-40.bgr-midnight
+							.ml-60.width-20p.text-3xs.color-rhino-100 12:50 - 13:00 h
+							.font-bold.width-60p.text-3xs.color-rhino-100 The Artifacts
+						.flex-row.items-start.mt-10
+							.circle.size-40.bgr-aqua
+							.ml-60.width-20p.text-3xs.color-rhino-100 13:00 - 13:15 h
+							.font-bold.width-60p.text-3xs.color-rhino-100 Wrap-Up
+				div.width-40p
+					img.fill.object-cover(src=assets+'pictures/img_vertical.jpg')
+		+frame()
+			div.text-center.my-20
+				h2.font-bold.text-xl Lorem Ipsum Dolor Sit Amet
+			.fill.grid.grid-cols-3.grid-rows-2.gap-30
+				div
+					img(src=assets+'pictures/img_horizontal.jpg')
+				div
+					img(src=assets+'pictures/img_horizontal.jpg')
+				div
+					img(src=assets+'pictures/img_horizontal.jpg')
+				div
+					p.font-bold.text-2xs Title 1
+					p.text-3xs.mt-10 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				div
+					p.font-bold.text-2xs Title 2
+					p.text-3xs.mt-10 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+				div
+					p.font-bold.text-2xs Title 3
+					p.text-3xs.mt-10 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+
++footer('HTML Template', 'DoDoLab')
+script(src!='../../scripts/reveal-setup.js')

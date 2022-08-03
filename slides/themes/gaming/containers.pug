@@ -1,0 +1,45 @@
+- var themePath = '../themes/gaming/';
+
+
+// filled frame
+// attributes: bgr, color, logoPath, titleColorClass, title
+mixin frame()
+	+mcontainer()&attributes(attributes)
+		div(class!='frame')
+			div.absolute.height-50.right-40.top-10.mt-5.nopadding
+				img.width-200(src!=(attributes.logoPath ? attributes.logoPath : themePath + 'resources/logo.svg'))
+			div.absolute.height-60.left-60.top-0.mt-5.nopadding
+				if(attributes.title)
+					p(class='text-md font-bold ' + (attributes.uppercase ? 'uppercase ' : '') + (attributes.titleColorClass ? attributes.titleColorClass : 'color-white'))!=attributes.title
+			.mt-20
+			div.fill.height-92p
+				block
+
+// filled frame without a title
+// attributes: bgr, color, logoPath
+
+mixin frameNoTitle()
+	+mcontainer()&attributes(attributes)
+		div(class!='frame empty')
+			div.absolute.height-50.right-40.top-10.mt-5.nopadding
+				img.width-200(src!=(attributes.logoPath ? attributes.logoPath : themePath + 'resources/logo.svg'))
+			div.fill
+				block
+
+// bubble tooltip
+mixin tip(text)
+	.tip.absolute.content-center.nopadding(class!=(attributes.class ? attributes.class : ''))
+		.icon.height-250.width-250.fragment.fade-up(class=attributes.imgclass ? attributes.imgclass : '')
+		.content.fragment.fade-up.bottom-100.left-250.fade-up(class!=(attributes.class ? attributes.class : ''))!=text
+
+mixin tipKeen1(text)
+	+tip(text)(class='keen')&attributes(attributes)
+
+mixin tipKeen2(text)
+	+tip(text)(class='keen keen2')&attributes(attributes)
+
+mixin tipKeen3(text)
+	+tip(text)(class='keen keen3')&attributes(attributes)
+
+mixin tipKeen4(text)
+	+tip(text)(class='keen keen4')&attributes(attributes)

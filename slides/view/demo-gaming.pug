@@ -1,0 +1,71 @@
+doctype html
+
+- var assets = '../assets/gaming/'
+- var defaultBgr = 'backgrounds/voxels.jpg';
+include ./mixins/header.pug
+include ./mixins/containers.pug
+include ../themes/gaming/containers.pug
+
++header('Gaming Template', 'Gaming', 'DoDoLab', '../themes/gaming/resources/favicon.png', '../themes/gaming/theme.scss')
+// ===================================================== SLIDES =====================================================
+.reveal
+	.slides
+		// ============================================================
+		+frame(title='Gaming Template', frameClass='empty')
+			.center.fill
+				img.height-300(src=assets+'title.png')
+		+frameNoTitle
+			.center.fill
+				h1.color-white Frame without title
+		+frame(title='Frames')
+			.p-20
+				.flex.flex-cols-3.fill.justify-center.items-center.mt-100
+					div.width-330.m-60.fragment(data-fragment-index='1')
+						.pframe.width-330.height-330.nopadding
+							img(src=assets+'game.png')
+					div.width-330.m-60.fragment(data-fragment-index='2')
+						.pframe.width-330.height-330.nopadding
+							img(src=assets+'game.png')
+					div.width-330.m-60.fragment(data-fragment-index='3')
+						.pframe.width-330.height-330.nopadding
+							img(src=assets+'game.png')
+		+frame(title='Tips (visible only in the presentation mode)')
+			+tipKeen1('This is tip #1').bottom-0.left-40
+			+tipKeen2('This is tip #2').bottom-0.left-200
+			+tipKeen3('This is tip #3').bottom-0.left-300
+			+tipKeen4('This is tip #4').bottom-0.left-400
+		+frame(title='Lists')
+			.p-20.ml-50
+				div.flex-cols-2
+					div
+						ul
+							li.fragment.upside The Good
+								ul
+									li.fragment Text
+									li.fragment Text
+									li.fragment Text
+									li.fragment Text
+					div
+						ul
+							li.fragment.downside The Bad
+								ul
+									li.fragment Text
+									li.fragment Text
+									li.fragment Text
+									li.fragment Text
+		+frame(title='Picture background')
+			.p-20
+				ol
+					li.fragment Text
+					li.fragment Text
+					li.fragment Text
+					li.fragment Text
+			.bottom-0.left-0
+				img.height-540(src=assets+'mario.png')
+		+frame(title='Questions?')
+			div.center
+				img.height-200.top-350(src=assets+'questionmark.png')
+
+
++footer('HTML Template', 'DoDoLab')
+script(src!='../../scripts/reveal-setup.js')

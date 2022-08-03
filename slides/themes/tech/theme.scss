@@ -1,0 +1,199 @@
+// ============= Load default variables =============
+@import "../base/theme_base_variables.scss";
+@import "../base/fonts.scss";
+@import "./fonts.scss";
+@import "./colors.scss";
+
+// ============= Override default variables =============
+
+
+/* Default colors for highlighting  */
+$highlight-color-1: $color-goldenrod;
+$highlight-color-2: $color-tomato-light;
+$highlight-color-3: $color-rhino-60;
+/* Color for links */
+$link-color: $color-aqua;
+/* Default background of body element */
+$background-color: $color-midnight-dark;
+/* Default color of texts */
+$text-color: $color-rhino-20;
+/* Default color of selected texts */
+$text-selection-color: $color-rhino-40;
+
+/* Settings for frames */
+$frame-color: unset;
+$frame-image: "";
+
+/* Fonts */
+$font-monospace: "Inconsolata", monospace;
+$font-regular: "Inter", sans-serif;
+
+$base-font-size: 36px;
+$base-line-height: 1.2;
+$base-list-spacing: 0.5em;
+$base-scope-spacing: 1em;
+
+$title-font-size: 60px;
+
+// ============= Load base templates =============
+// load templates
+@import "../base/templates.scss";
+@import "../base/theme_base.scss";
+
+// ============= Load other custom styles =============
+
+// load other custom styles
+@import "./code.scss";
+
+.reveal {
+	/* Slide titles */
+	.slide-title {
+		color: $color-rhino-10;
+	}
+
+	/* Radial background of the frame */
+	.frame::before, .frame::after {
+		border: 1px solid $color-rhino-100;
+		border-radius: 2px;
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	/* Linear background */
+	.frame::before {
+		z-index: -2;
+		background: linear-gradient(to bottom right, rgba($color-midnight-dark, 0.94) 0%, rgba($color-rhino-100, 0.94) 100%);
+	}
+
+	/* Pattern effect */
+	.frame::after {
+		z-index: -1;
+		background-image: url("./resources/pattern.png");
+		background-size: 100rem;
+		background-repeat: repeat;
+		box-shadow: 6px 5px 15px rgba($color-midnight-dark, 0.6);
+	}
+
+	.scope > p:nth-child(1) {
+		@extend .font-bold;
+		color: $highlight-color-1;
+	}
+
+	.code.tiny {
+		p, span {
+			@extend .leading-base;
+		}
+	}
+
+	.code.small {
+		p, span {
+			@extend .leading-md;
+		}
+	}
+		
+
+	/* table styles */
+	table {
+		border-collapse: collapse;
+		table-layout: fixed;
+
+		tr {
+			th {
+				padding: 10px;
+				text-align: center;
+			}
+			th,
+			td,
+			td:first-child {
+				@extend .text-sm;
+				padding: 8px 10px 8px 10px;
+				color: $color-rhino-20;
+				overflow: hidden;
+			}
+			th {
+				background-color: rgba($color-rhino-100, 0.6);
+				text-transform: uppercase;
+				@extend .font-bold;
+				border-top: none;
+				border-left: none;
+				border-right: none;
+				border-bottom: 2px solid $color-rhino-80;
+			}
+			td,
+			td:first-child {
+				border: none;
+			}
+			td + td {
+				border-left: 2px solid $color-rhino-80;
+			}
+		}
+		tr {
+			background: rgba($color-rhino-100, 0.6);
+		}
+		tr:nth-child(2n + 3) {
+			background: rgba($color-rhino-90, 0.6);
+		}
+	}
+
+	.code table, table pre {
+		border-collapse: collapse;
+		tr, td {
+			padding: 0px !important;
+			border: none;
+			background: none;
+			margin: 0px;
+		}
+
+		td:first-child {
+			padding-right: 10px !important;
+			border-right: 2px solid $color-rhino-80;
+		}
+	}
+
+  
+	blockquote {
+		text-align: left;
+		position: relative;
+		display: inline-block;
+		padding: 40px 30px 30px 90px !important;
+		font-family: $font-regular;
+		color: $color-rhino-20;
+		@extend .text-2xl;
+		@extend .italic;
+		
+		> span.author {
+		  position: relative;
+		  display: block;
+		  text-align: right;
+		  margin-top: 15px;
+		  color: $highlight-color-1;
+		  @extend .not-italic;
+		}
+	
+		&::before {
+		  display: block;
+		  position: absolute;
+		  top: 20px;
+		  left: 20px;
+		  content: "\"";
+		  font-family: $font-regular, serif;
+		  font-size: 120px;
+		  color: $highlight-color-1;
+		}
+	  }
+}
+
+footer,
+.reveal .slide-number {
+	color: $color-white;
+}
+
+.reveal .controls .controls-arrow {
+	color: $highlight-color-1;
+}
+
+@import "./print.scss";

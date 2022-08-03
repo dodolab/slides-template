@@ -1,0 +1,30 @@
+/* Colors */
+
+/* Corporate colors */
+$color-violet: #96285f;
+$color-royal: #666de9;
+$color-midnight: #000651;
+$color-white: #ffffff;
+
+/* Vivid colors */
+$color-green: #2eb67b;
+$color-aqua: #5fd2b4;
+$color-blue: #48a7e3;
+$color-purple: #7d61de;
+$color-pink: #d73094;
+$color-red: #d23459;
+$color-tomato: #eb6241;
+$color-yellow: #e8bc3c;
+
+/* Shades of grey */
+$color-rhino-100: #2f3744;
+$color-rhino-80: #535e70;
+$color-rhino-60: #7b8694;
+$color-rhino-40: #a6aeb8;
+$color-rhino-20: #d2d6dc;
+$color-rhino-10: #e8eaec;
+$color-rhino-5: #f3f4f5;
+
+$allColors: "violet" $color-violet, "royal" $color-royal, "midnight" $color-midnight, "white" $color-white, "green" $color-green, "aqua" $color-aqua, "blue" $color-blue,
+    "purple" $color-purple, "pink" $color-pink, "red" $color-red, "tomato" $color-tomato, "yellow" $color-yellow, "rhino-100" $color-rhino-100, "rhino-80" $color-rhino-80,
+    "rhino-60" $color-rhino-60, "rhino-40" $color-rhino-40, "rhino-20" $color-rhino-20, "rhino-10" $color-rhino-10, "rhino-5" $color-rhino-5;

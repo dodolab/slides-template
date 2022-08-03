@@ -1,0 +1,122 @@
+doctype html
+
+- var assets = '../assets/tech/'
+- var defaultBgr = 'backgrounds/code.jpg';
+include ./mixins/header.pug
+include ./mixins/containers.pug
+include ../themes/tech/containers.pug
+
++header('Tech Template', 'Tech', 'DoDoLab', '../themes/tech/resources/favicon.png', '../themes/tech/theme.scss')
+
+// ===================================================== SLIDES =====================================================
+.reveal
+	.slides
+		// ============================================================
+		+titleLecture('Tech Template', 'Tech Template', 'DoDoLab', assets+'icon.svg')
+		// ============================================================
+		+mcontainer
+			h3 Quotes
+			+frameShard().top-5p.width-78p.left-12p.fragment.fade-up
+				+quote('The greatest glory in living lies not in never falling, but in rising every time we fall.', 'Nelson Mandela').text-xl
+			+frameShard().top-10p.width-78p.left-12p.fragment.fade-up
+				+quote('The way to get started is to quit talking and begin doing.', 'Walt Disney').text-xl
+			+frameShard().top-15p.width-78p.left-12p.fragment.fade-up
+				+quote('If life were predictable it would cease to be life, and be without flavor.', 'Eleanor Roosevelt').text-xl
+		+frameInboxMid('Fragments')
+			.scope.fragment
+				p Scope Title
+				ul
+
+					li.fragment.fade-up fragment fragment fragment fragment fragment fragment fragment
+			.scope.fragment
+				p Scope Title
+				ul
+
+					li.fragment.fade-up fragment fragment fragment fragment fragment fragment fragment
+			.scope.fragment
+				p Scope Title
+				ul
+
+					li.fragment.fade-up fragment fragment fragment fragment fragment fragment fragment
+		+frameInbox('Hints')
+			.fill.center
+				+imgTooltip(assets+'hint.svg', 'This is a hint')
+		+frameInbox('Code: JavaScript')
+			.fill.p-20.code.center
+				include ../assets/tech/snippets_generated/javascript-example.html
+		+frameInbox('Code: SQL')
+			.fill.p-20.code.center
+				include ../assets/tech/snippets_generated/sql-example.html
+		+frameOutbox('Outer frame')
+			div
+				ul
+					h1 Header 1
+					h2.text-left Header 2
+					h3 Header 3
+					h4 Header 4
+					h5 Header 5
+					h6 Header 6
+		+frameInbox('Equations')
+			.fill.center
+				div
+					div
+						include ../assets/tech/equations_generated/example_01.svg
+					div
+						include ../assets/tech/equations_generated/example_02.svg
+					div
+						include ../assets/tech/equations_generated/example_03.svg
+					div
+						include ../assets/tech/equations_generated/example_04.svg
+					div
+						include ../assets/tech/equations_generated/example_05.svg
+		+frameInbox('Table')
+			.flex-rows-2.center.fill
+				table
+					tr
+						th Header A
+						th Header B
+						th Header C
+						th Header D
+						th Header E
+						th Header F
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+					tr
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+						td Cell
+		+mchapter('Chapter Title')
+		+frameInbox('Picture example')
+			ul
+				li.fragment Text
+				li.fragment Text
+				li.fragment Text
+				li.fragment Text
+				li.fragment Text
+				.bottom-0.right-0
+					img.height-910(src=assets+'retro_icons.jpg').opacity-4
+
++footer('HTML Template', 'DoDoLab')
+script(src!='../../scripts/reveal-setup.js')

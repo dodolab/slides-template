@@ -1,0 +1,50 @@
+- var themePath = '../themes/corporate/';
+
+// frame filled with a picture
+// attributes: bgr, color
+mixin pictureFrame(picture)
+	+mcontainer()&attributes(attributes)
+		div(class!='frame')
+			img.width-100p.height-100p.absolute.object-cover(src!=picture)
+			.absolute.fill
+				block
+
+// filled frame
+// attributes: bgr, color, frameColorClass, logoPath, titleColorClass, title
+mixin frame()
+	+mcontainer()&attributes(attributes)
+		div(class!='frame ' + (attributes.frameColorClass ? attributes.frameColorClass : 'bgr-white'))
+			div.absolute.height-60.right-10
+				img(src!=(attributes.logoPath ? attributes.logoPath : themePath + 'resources/logo_color.png'))
+			div.absolute.height-50.left-20
+				if(attributes.title)
+					p(class='text-xs font-bold ' + (attributes.uppercase ? 'uppercase ' : '') + (attributes.titleColorClass ? attributes.titleColorClass : 'color-rhino-100'))!=attributes.title
+			div.fill.p-60
+				block
+
+// frame with another frame inside (white content around), inverted colors
+// attributes: bgr, color, frameColorClass, logoPath, titleColorClass, title
+mixin frameInverted()
+	+frame(frameColorClass='bgr-midnight' titleColorClass='color-white' logoPath=themePath+'resources/logo_white.png')&attributes(attributes)
+		div.fill.p-60.frame-inner
+			block
+
+// template tip
+// attributes: tipClass
+mixin tip(title)
+	div(class=attributes.class ? attributes.class : '')
+		b(class!='relative uppercase py-10 px-25 text-xs ' + (attributes.tipClass ? attributes.tipClass : 'bgr-royal'))!=title
+		p.bgr-rhino-10.text-3xs.-mt-20.-ml-20.py-50.px-30.color-rhino-100
+			block
+
+// square box with a content
+// attributes: boxClass, titleColorClass, titleDescClass, titleTextColorClass
+mixin infoBox(title, description, text)
+	div(class='width-300 height-300 text-center flex justify-center items-center ' + (attributes.boxClass ? attributes.boxClass : ''))
+		div.inline-block
+			p(class='text-3xl leading-base ' + (attributes.titleColorClass ? attributes.titleColorClass : 'color-white'))
+				b!=title
+			p(class='uppercase text-4xs ' + (attributes.titleDescClass ? attributes.titleDescClass : (attributes.titleColorClass ? attributes.titleColorClass : 'color-white')))
+				b!=description
+			p(class='text-4xs mt-10 mx-10 ' + (attributes.titleTextColorClass ? attributes.titleTextColorClass : (attributes.titleColorClass ? attributes.titleColorClass : 'color-white')))
+				b!=text

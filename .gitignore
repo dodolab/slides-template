@@ -1,0 +1,19 @@
+# Dependencies
+/node_modules
+
+# Production
+/build
+
+# Generated files
+.cache-loader
+.cache/
+.parcel-cache/
+snippets_generated
+equations_generated
+
+npm-debug.log*
+
+/.idea/
+.log
+src/css/infima.css
+.ignore

@@ -1,0 +1,270 @@
+// ============= Load default variables =============
+@import "../base/theme_base_variables.scss";
+@import "../base/fonts.scss";
+@import "./fonts.scss";
+@import "./colors.scss";
+
+// ============= Override default variables =============
+
+/* Default colors for highlighting  */
+$highlight-color-1: $color-purple;
+$highlight-color-2: $color-pink;
+$highlight-color-3: $color-blue;
+/* Color for links */
+$link-color: $color-blue;
+/* Default background of body element */
+$background-color: $color-white;
+/* Default color of texts */
+$text-color: $color-rhino-100;
+/* Default color of selected texts */
+$text-selection-color: $color-tomato;
+
+/* Settings for frames */
+$frame-color: $color-white;
+$frame-image: "";
+
+/* Fonts */
+$font-monospace: "Inconsolata", monospace;
+$font-regular: "Inter", sans-serif;
+
+$base-font-size: 45px;
+$base-line-height: 1.2;
+$base-list-spacing: 0.5em;
+$base-scope-spacing: 1em;
+
+$titleFontSize: floor($base-font-size * 1.5);
+
+// ============= Load base templates =============
+// load templates
+@import "../base/templates.scss";
+@import "../base/theme_base.scss";
+
+// ============= Load other custom styles =============
+
+// load other custom styles
+@import "./code.scss";
+
+.reveal {
+	p,
+	ul {
+		@extend .leading-xl; /* spacing between paragraphs */
+	}
+
+	h1,
+	h2,
+	h3 {
+		/* no uppercase */
+		text-transform: none;
+	}
+
+	/* table styles */
+	table,
+	table.default {
+		border-collapse: collapse;
+		table-layout: fixed;
+		tr {
+			th {
+				padding: 10px;
+			}
+			th,
+			td,
+			td:first-child {
+				text-align: center;
+				font-size: floor($base-font-size * 0.55);
+				padding-top: 20px;
+				padding-bottom: 20px;
+				color: $color-rhino-100;
+				overflow: hidden;
+			}
+			th {
+				background-color: $color-white;
+				text-transform: uppercase;
+				font-weight: 600;
+				border-top: none;
+				border-left: none;
+				border-right: none;
+				border-bottom: 4px solid $color-rhino-100;
+			}
+			td,
+			td:first-child {
+				border: none;
+			}
+			td + td {
+				border-left: 3px solid $color-white;
+			}
+		}
+		tr {
+			background: $color-rhino-10;
+		}
+		tr:nth-child(2n + 3) {
+			background: $color-rhino-20;
+		}
+	}
+
+	table.colored {
+		tr {
+			border: none;
+			th {
+				color: $color-white;
+			}
+			th {
+				background-color: $color-royal;
+				border: 4px solid $color-white;
+			}
+			td,
+			td:first-child {
+				border: 4px solid $color-white;
+			}
+		}
+	}
+
+	table.striped {
+		tr,
+		td,
+		th {
+			border: none !important;
+		}
+		tr {
+			th,
+			td {
+				@extend .px-20;
+				@extend .py-30;
+				@extend .align-middle;
+			}
+			th {
+				@extend .text-4xs;
+				@extend .font-bold;
+				text-transform: none;
+				color: $color-rhino-100;
+				background: $color-rhino-40;
+			}
+			th:nth-child(1) {
+				background: $color-rhino-5;
+			}
+			th:nth-child(2n) {
+				background: $color-rhino-20;
+			}
+			td {
+				background: $color-white;
+			}
+			td:nth-child(1) {
+				@extend .font-bold;
+				@extend .text-4xs;
+			}
+			td + td {
+				/* not first child */
+				@extend .text-2xs;
+			}
+			td:nth-child(2n) {
+				background: $color-rhino-5;
+			}
+		}
+	}
+
+	/* shadowbox for slide frames */
+	.frame {
+		box-shadow: 12px 9px 23px rgba(0, 0, 0, 0.3);
+		border: 10px solid transparent;
+		border-image-slice: 150 186 159 fill;
+		border-image-width: 160px;
+		border-image-outset: 0px 0px 0px 0px;
+		border-image-repeat: repeat repeat;
+		border-image-source: url("./resources/frame.png");
+
+		&.empty {
+			border-image-source: url("./resources/frame_empty.png");
+		}
+	}
+	.pframe {
+		border: 25px solid transparent;
+		border-image-slice: 150 186 159 fill;
+		border-image-width: 80px;
+		border-image-outset: 0px 0px 0px 0px;
+		border-image-repeat: repeat repeat;
+		border-image-source: url("./resources/pframe.png");
+	}
+
+	/* safety padding for direct lists */
+	.frame,
+	.frame-inner {
+		> ul,
+		> ol,
+		> p {
+			padding-top: 20px;
+		}
+	}
+
+	/* hints */
+	.tip {
+		.content {
+			width: 550px;
+			padding: 20px;
+			border-image-slice: 50 50 50 50 fill;
+			border-image-width: 50px 50px 50px 50px;
+			border-image-outset: 30px 30px 30px 30px;
+			border-image-repeat: stretch stretch;
+		}
+
+		.icon {
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+
+		&.keen {
+			color: $color-midnight;
+
+			.content {
+				border-image-source: url("./resources/hint_frame_keen.png");
+			}
+			.icon {
+				background-image: url("./resources/keen1.png");
+			}
+		}
+
+		&.keen2 .icon {
+			background-image: url("./resources/keen2.png");
+		}
+
+		&.keen3 .icon {
+			background-image: url("./resources/keen3.png");
+		}
+
+		&.keen4 .icon {
+			background-image: url("./resources/keen4.png");
+			padding: 10px;
+		}
+	}
+
+	/* upside/downside markers */
+	.upside,
+	.downside {
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			display: inline-block;
+			width: 45px;
+			height: 45px;
+			left: -60px;
+			top: 8px;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
+
+	.upside::before {
+		background-image: url("./resources/emoji_happy.png");
+	}
+
+	.downside::before {
+		background-image: url("./resources/emoji_angry.png");
+	}
+}
+
+footer,
+.reveal .slide-number {
+	color: $color-rhino-100;
+}
+
+@import "./print.scss";
